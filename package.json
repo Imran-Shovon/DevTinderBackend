@@ -1,0 +1,27 @@
+{
+  "name": "devtinderbackend",
+  "version": "1.0.0",
+  "description": "Tinder for devs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Imran-Shovon/DevTinderBackend.git"
+  },
+  "keywords": [
+    "Nodejs",
+    "Javascript"
+  ],
+  "author": "Shovon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Imran-Shovon/DevTinderBackend/issues"
+  },
+  "homepage": "https://github.com/Imran-Shovon/DevTinderBackend#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

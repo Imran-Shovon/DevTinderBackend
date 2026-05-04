@@ -6,3 +6,7 @@
 - listen to port 7777
 - write request handlers for /test /hello
 - install nodemon and update scripts inside package.json
+- difference between carret and tilda
+- what is the use of "-g" while npm install
+- Play with route and extension. ex: /hello /test
+- Order of the routes matter a lot.

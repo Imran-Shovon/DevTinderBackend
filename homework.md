@@ -10,3 +10,7 @@
 - what is the use of "-g" while npm install
 - Play with route and extension. ex: /hello /test
 - Order of the routes matter a lot.
+- Explore routing and use of ?, +, (), \* in the routes.
+- use of regex in routes /a/ , /.\*fly$/
+- Reading the query params in the routes
+- reading the dynamic routes

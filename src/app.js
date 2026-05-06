@@ -1,37 +1,39 @@
 const express = require("express");
+const connectDB = require("./config/database");
 const app = express();
-const { adminAuth, userAuth } = require("./middleswares/auth");
+const User = require("./models/user");
 
 
-app.use("/admin", adminAuth);
-app.use("/admin", adminAuth);
+app.post("/signup", async (req, res) => {
+    const userObj = {
+      firstName: "Aksay",
+      lastName: "saini",
+      emailId: "aksay.saini.cse@gamil.com",
+      password: "aksay123",
+      age: 28,
+      gender: "Male",
+      _id: "507f1f77bcf86cd799439011",
+    };
+    const user = new User(userObj);
 
-app.get("/admin/getAllData", (req, res) => {
-   try{
-    throw new Error("Something went wrong in admin route");
-    res.send("All data send")
-   }
-   catch(err) {
-    res.status(500).send("An error occurred: " + err.message);
-   }
-});
-
-
-app.get("/user", userAuth, (req, res) => {
-    res.send("All User data send")
-});
-
-app.delete("/admin/deleteUser", (req, res) => {
-    
-    res.send("User deleted")
-});
-
-app.use("/userError", (err, req, res, next) => {
-    if(err) {
-        res.status(500).send("An error occurred: " + err.message);
+    try {
+        await user.save();
+    res.send("User created successfully");
+    }
+    catch (error) {
+        console.error("Error creating user", error);
+        res.status(400).send("Error creating user");
     }
 })
 
-app.listen(3000, () => {
-    console.log("Server is running on port 3000");
-});
+
+connectDB()
+  .then(() => {
+    console.log("Database connected successfully");
+    app.listen(3000, () => {
+      console.log("Server is running on port 3000");
+    });
+  })
+  .catch((error) => {
+    console.error("Database can not be connected", error);
+  });

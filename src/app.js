@@ -3,18 +3,21 @@ const connectDB = require("./config/database");
 const app = express();
 const User = require("./models/user");
 
+app.use(express.json());
 
 app.post("/signup", async (req, res) => {
-    const userObj = {
-      firstName: "Aksay",
-      lastName: "saini",
-      emailId: "aksay.saini.cse@gamil.com",
-      password: "aksay123",
-      age: 28,
-      gender: "Male",
-      _id: "507f1f77bcf86cd799439011",
-    };
-    const user = new User(userObj);
+  // console.log(req.body);
+  // res.send("User created successfully");
+    // const userObj = {
+    //   firstName: "Aksay",
+    //   lastName: "saini",
+    //   emailId: "aksay.saini.cse@gamil.com",
+    //   password: "aksay123",
+    //   age: 28,
+    //   gender: "Male",
+    //   _id: "507f1f77bcf86cd799439011",
+    // };
+    const user = new User(req.body);
 
     try {
         await user.save();

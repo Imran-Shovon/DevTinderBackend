@@ -6,17 +6,6 @@ const User = require("./models/user");
 app.use(express.json());
 
 app.post("/signup", async (req, res) => {
-  // console.log(req.body);
-  // res.send("User created successfully");
-    // const userObj = {
-    //   firstName: "Aksay",
-    //   lastName: "saini",
-    //   emailId: "aksay.saini.cse@gamil.com",
-    //   password: "aksay123",
-    //   age: 28,
-    //   gender: "Male",
-    //   _id: "507f1f77bcf86cd799439011",
-    // };
     const user = new User(req.body);
 
     try {
@@ -27,6 +16,34 @@ app.post("/signup", async (req, res) => {
         console.error("Error creating user", error);
         res.status(400).send("Error creating user");
     }
+})
+
+//Get User by email
+app.get("/user", async (req, res) => {
+  const userEmail = req.body.emailId;
+
+  try {
+    const user = await User.find({emailId: userEmail})
+    if(user.length === 0) {
+      res.status(404).send("User not found");
+    } else {
+      res.send(user);
+    }
+  }
+  catch (error) {
+    res.status(400).send("User not found");
+  }
+})
+
+//Feed API - GET /feed - get all the users from the database
+app.get("/feed", async (req, res) => {
+  try{
+    const users = await User.find({});
+    res.send(users);
+  }
+  catch (error) {
+    res.status(400).send("Error fetching users");
+  }
 })
 
 

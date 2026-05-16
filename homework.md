@@ -51,3 +51,4 @@
 - Create a custom validate function for gender
 - Improve the DB schema - PUT all appropriate validations on each field in schema
 - Add timestamp
+- API level validations for each data

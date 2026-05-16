@@ -70,7 +70,7 @@ app.patch("/user", async (req, res) => {
 
     res.send(user);
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(400).send("User update is unsuccessful: " +error.message);
   }
 });
 

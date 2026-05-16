@@ -52,3 +52,5 @@
 - Improve the DB schema - PUT all appropriate validations on each field in schema
 - Add timestamp
 - API level validations for each data
+- Install validators
+- Explore validator libray

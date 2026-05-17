@@ -4,6 +4,7 @@ const app = express();
 const User = require("./models/user");
 const { validateSignUpData } = require("./utils/validation");
 const bcrypt = require("bcrypt")
+const validator = require("validator");
 
 
 app.use(express.json());
@@ -28,6 +29,34 @@ app.post("/signup", async (req, res) => {
     catch (error) {
         res.status(400).send("Error: " + error.message);
     }
+})
+
+app.post("/login", async (req, res) => {
+
+  try {
+    const { emailId, password } = req.body;
+    if(!validator.isEmail(emailId)) {
+      throw new Error("Invalid email");
+    }
+
+    const user = await User.findOne({ emailId: emailId });
+
+    if (!user) {
+      throw new Error("User not found");
+    }
+
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+
+    if(isPasswordValid) {
+      res.send("Login successful");
+    }
+    else {
+      throw new Error("Invalid password");
+    }
+  }
+  catch (error) {
+    res.status(400).send("Error: " + error.message);
+  }
 })
 
 //Get User by email

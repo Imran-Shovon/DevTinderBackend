@@ -54,3 +54,6 @@
 - API level validations for each data
 - Install validators
 - Explore validator libray
+- Validate data in signup API
+- Install bcrypt package
+- Create a passwordHash using bcrypt.hash and save the user is encrypted password

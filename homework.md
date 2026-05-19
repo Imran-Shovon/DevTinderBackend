@@ -75,3 +75,8 @@
 - Explore tinder APIs
 - Create list of all APIs you can think of in DEV Tinder
 - Group multiple routers under repective routers
+
+- Read documentation for express.Router
+- Create routes folder for managing auth, profile, request routes
+- Create authRouter, ProfileRouter, RequestRouter
+- Import these routers in app.js

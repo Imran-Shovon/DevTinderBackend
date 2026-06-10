@@ -98,3 +98,6 @@
 - Read about compound Indexes in mongoDB
 - Always think about corner cases.
 - Write code with proper validation for POST /request/review/:status/:requestId
+- Thought process - POST vs GET
+- Mongo ref and populate uses. kind of replacement of join.
+- Create GET /user/request/received with all the check.

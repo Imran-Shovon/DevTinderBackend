@@ -101,3 +101,4 @@
 - Thought process - POST vs GET
 - Mongo ref and populate uses. kind of replacement of join.
 - Create GET /user/request/received with all the check.
+- Create GET API /user/connections

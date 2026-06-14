@@ -102,3 +102,5 @@
 - Mongo ref and populate uses. kind of replacement of join.
 - Create GET /user/request/received with all the check.
 - Create GET API /user/connections
+- Logic GET /feed API
+- Explore the $nin, $and, $ne and other query operators

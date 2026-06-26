@@ -53,7 +53,10 @@ authRouter.post("/login", async (req, res) => {
         expires: new Date(Date.now() + 3600000), // 1 hour
       });
 
-      res.send("Login successful");
+      res.json({
+        message: "Login successful",
+        data: user,
+      });
     } else {
       throw new Error("Invalid password");
     }
